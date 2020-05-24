@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid View</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        .item1 {
+            grid-column: 1 /span 2;
+            grid-row: 1 /span 3;
+        }
+
+        .item2 {
+            grid-column: 3;
+            grid-row: 1/span 2;
+
+        }
+
+        .item5 {
+            grid-column: 1/span 3;
+            grid-row: 3;
+        }
+
+        .item2-1 {
+            grid-area: myArea;
+        }
+
+        /* .item2-2 {
+            grid-area: myArea2;
+        } */
+
+        .grid-container-2 {
+            display: grid;
+            grid-template-areas: 'myArea myArea . . .''myArea myArea . . .';
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container-2>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 30px;
+        }
+
+        #counters {
+            counter-reset: section;
+        }
+        #counters h1 {
+            counter-reset: susbsection;
+        }
+        #counters h1::before {
+            counter-increment: section;
+            content: "Section " counter(section) ". ";
+        }
+        #counters h2::before {
+            counter-increment: subsection;
+            content: counter(section) "." counter(subsection) " ";
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Five Items Grid Layout: </h1>
+    <div class="grid-container">
+        <div class="grid-item item1">1</div>
+        <div class="grid-item item2">2</div>
+        <div class="grid-item item3">3</div>
+
+    </div>
+
+    <h1>The grid-area property</h1>
+    <p>You can refer to the name when you set up the grid layout, by using the
+        <em>grid-template-areas</em> property on the grid container</p>
+    <p>Item1, is called "myArea" and will take up the place of all five columns:</p>
+
+    <div class="grid-container-2">
+        <div class="item2-1">1</div>
+        <div class="item2-2">2</div>
+        <div class="item2-3">3</div>
+        <div class="item2-4">4</div>
+        <div class="item2-5">5</div>
+        <div class="item2-6">6</div>
+    </div>
+    <div id="counters">
+
+        <h1>HTML tutorials:</h1>
+        <h2>HTML Tutorial</h2>
+        <h2>CSS Tutorial</h2>
+
+        <h1>Scripting tutorials:</h1>
+        <h2>JavaScript</h2>
+        <h2>VBScript</h2>
+
+        <h1>XML tutorials:</h1>
+        <h2>XML</h2>
+        <h2>XSL</h2>
+
+        <p><b>Note:</b> IE8 supports these properties only if a !DOCTYPE is specified.</p>
+    </div>
+</body>
+
+
+</html>
